@@ -1,7 +1,7 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
-// ustawiam zmienne zgodnie zfokumentacją Pre-existing player
+// ustawiam zmienne zgodnie z dokumentacją Pre-existing player
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
@@ -25,7 +25,7 @@ function getCurrentTime() {
     });
 }
 
-//zmienna, która usawiająca czas filmu co 1 sek
+//zmienna ustawiająca czas filmu co 1 sek
 let time = throttle(getCurrentTime, 1000);
 
 //uruchomienie playare i uruchomienie funkcji timeupdate ze mnienną time
