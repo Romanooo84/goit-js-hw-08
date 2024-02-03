@@ -29,8 +29,9 @@ let delay= throttle(getLocalStorageData, 500);
 // nasłuchowanie pól email i message i uruchomienie funkcji zapisywanie pół do local storage
 emailtInput.addEventListener('input', delay);
 messageInput.addEventListener('input', delay);
-submitButton.addEventListener("click", function clear () {
+
+// czyszczenie pola email i message w local storage po wcisnieciu submit
+submitButton.addEventListener("click", clear => {
     localStorage.removeItem("email");
     localStorage.removeItem("message");
-    console.log('cleared')
 })
