@@ -1,20 +1,36 @@
 import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
 
+// ustawiam zmienne zgodnie zfokumentacją Pre-existing player
 const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 
+//pobieram zmienną z lokal storage
+let videoStartTime = localStorage.getItem('videoplayer-current-time')
 
-let time = localStorage.getItem('videoplayer-stop-time')
+// sprawdzam czy ma wartość undefinied
+if (videoStartTime === undefined) {
+    videoStartTime=0
+}
 
-player.setCurrentTime(time)
+//ustawienie czasu
+player.setCurrentTime(videoStartTime);
 
-player.on('timeupdate', function (data) {
-    localStorage.setItem('videoplayer-current-time', data.seconds)
-});
+//funkcja pobierania czasu filmu i wpisywania jej do lokal storage
+function getCurrentTime() {
+    player.getCurrentTime().then(function (time) {
+        localStorage.setItem('videoplayer-current-time', Math.floor(time));
+    }).catch(function (error) {
+        localStorage.setItem('error', error);
+    });
+}
 
-player.on('pause', function (data) {
-    localStorage.setItem('videoplayer-stop-time',data.seconds)
-})
+//zmienna, która usawiająca czas filmu co 1 sek
+let time = throttle(getCurrentTime, 1000);
+
+//uruchomienie playare i uruchomienie funkcji timeupdate ze mnienną time
+player.on('timeupdate', time)
+
 
     
 
