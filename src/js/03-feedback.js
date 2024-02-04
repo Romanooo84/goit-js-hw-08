@@ -1,5 +1,5 @@
 import throttle from 'lodash.throttle';
-//inicjacja zmiennej w formacie JSON
+//inicjacja zmiennej w formacie JSONasd
 let feedbackFormStateJSON 
 
 //wyszukiwanie pół form
