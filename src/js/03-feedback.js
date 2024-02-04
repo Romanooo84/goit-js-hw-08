@@ -55,6 +55,6 @@ let delay = throttle(formInput, 500);
 
 //nasłuchiwanie wpisywania i kliknięć
 dataInput.addEventListener("input", delay)
-dataInput.addEventListener("click", delay)
+dataInput.addEventListener('submit', delay)
 
 
