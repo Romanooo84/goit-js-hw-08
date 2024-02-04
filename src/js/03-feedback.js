@@ -4,7 +4,7 @@ import throttle from 'lodash.throttle';
 let dataInput = document.querySelector(".feedback-form");
 
 //pobieranie danych z lokalstorage
-let feedbackFormState = localStorage.getItem('feedback-form-state'))
+let feedbackFormState = localStorage.getItem('feedback-form-state')
 
 //sprawdzanie czy są wpisane dane do local sotrage
 if (feedbackFormState == undefined) {
