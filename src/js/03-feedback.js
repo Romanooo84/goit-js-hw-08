@@ -1,4 +1,6 @@
 import throttle from 'lodash.throttle';
+//inicjacja zmiennej w formacie JSON
+let feedbackFormStateJSON 
 
 //wyszukiwanie pół form
 let dataInput = document.querySelector(".feedback-form");
