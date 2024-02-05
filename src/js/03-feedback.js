@@ -27,6 +27,7 @@ if (feedbackFormState == undefined) {
 
 // funkcja zapisywania danych do local storage po pojawieniu sie zdarzenia
 function formInput(event) {
+    event.preventDefault();
     //zapisanie wartosci zdarzenia
     const dataValue = event.target.value
     //zapisanie elementu html i ustawienie małych liter
